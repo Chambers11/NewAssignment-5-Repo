@@ -1,0 +1,59 @@
+title: Bouncer
+tags: 
+colorID: 0
+position: 886,-280
+---
+<<if visited ("Bouncer") is false>>
+    Bouncer: You ain't here to cause trouble now is you? 
+[[ No |Bouncer.No]]
+[[ Yes |Bouncer.Scram]]
+<<else>>
+    Bouncer: You again!! 
+    Bouncer: What do you want?
+   -> I want to get in 
+    Bouncer: Sigh...
+    <<Wait 2>>
+    Bouncer: Password?
+ [[ Password Choices |Bouncer.Password]]
+    
+<< endif>>
+===
+title: Bouncer.Scram
+tags: 
+colorID: 0
+position: 526,-105
+---
+<<if visited ("Bouncer.Password") is true >>
+Bouncer: Wrong!! Now SCRAM!!!
+<<else>> 
+Bouncer: Well then take your sorry behind elsewhere.
+<< wait 2>> 
+Bouncer: Scram!!!
+<< endif>>
+===
+title: Bouncer.Password
+tags: 
+colorID: 4
+position: 896,-25
+---
+[[ Sun: |Bouncer.Scram]] 
+[[ Moon: |Bouncer.Scram]]
+[[ Asteroids: |Bouncer.Scram]]
+[[ Stars: |Answer.Correct]]
+===
+title: Answer.Correct
+tags: 
+colorID: 0
+position: 885,225
+---
+Bouncer: Lucky guess...
+Bouncer: Stand on the green bar to enter
+===
+title: Bouncer.No
+tags: 
+colorID: 0
+position: 1316,-196
+---
+Bouncer: Well then, what is the password?
+[[ Password Choices: |Bouncer.Password]]
+===
